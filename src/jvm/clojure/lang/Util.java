@@ -165,7 +165,7 @@ public static int hasheq(Object o){
 	if(o == null)
 		return 0;
 	if(o instanceof IHashEq)
-		return dohasheq((IHashEq) o);	
+		return dohasheq((IHashEq) o);
 	if(o instanceof Number)
 		return Numbers.hasheq((Number)o);
 	if(o instanceof String)
@@ -244,6 +244,12 @@ static private <T extends Throwable> void sneakyThrow0(Throwable t) throws T {
 	throw (T) t;
 }
 
+static public Object lock(final Object lockee, final IFn f) {
+       synchronized(lockee) {
+               return f.invoke();
+       }
+}
+
 static public Object loadWithClass(String scriptbase, Class<?> loadFrom) throws IOException, ClassNotFoundException{
     RT.init();
     Var.pushThreadBindings(RT.map(new Object[] { Compiler.LOADER, loadFrom.getClassLoader() }));
@@ -257,4 +263,3 @@ static public Object loadWithClass(String scriptbase, Class<?> loadFrom) throws 
 }
 
 }
-

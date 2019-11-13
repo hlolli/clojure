@@ -1,0 +1,8 @@
+{:mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://repo.clojars.org/"}}
+ :paths ["src/resources" "src/clj"]
+ :deps {org.clojure/spec.alpha {:mvn/version "0.2.176"}
+        org.clojure/core.specs.alpha {:mvn/version "0.2.44"}
+        org.clojure/test.generative {:mvn/version "0.5.2"}
+        org.clojure/test.check {:mvn/version "0.9.0"}
+        javax.xml.ws/jaxws-api {:mvn/version "2.3.0"}}}
